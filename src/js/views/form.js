@@ -1,6 +1,6 @@
 /**
  * Function inputErrorTemplate
- * @param {String} msg
+ * @param {string} msg
  */
 
 function inputErrorTemplate(msg) {

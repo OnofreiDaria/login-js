@@ -3,8 +3,8 @@ import API_ENV from "./api.config";
 
 /**
  * Function login. Make login request to API
- * @param {String} email
- * @param {String} password
+ * @param {string} email
+ * @param {string} password
  */
 
 export async function login(email, password) {
