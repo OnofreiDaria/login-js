@@ -4,6 +4,7 @@ import '../css/style.css';
 import UI from './config/ui.config';
 import { validate } from "./helpers/validate";
 import { showInputError, removeInputError } from "./views/form";
+import { login } from "./services/auth.services";
 
 const { form, inputEmail, inputPassword } = UI;
 const inputs = [inputEmail, inputPassword];
@@ -18,7 +19,7 @@ inputs.forEach(el => el.addEventListener('focus', () => removeInputError(el)));
 
 //Handlers
 
-function onSubmit() {
+async function onSubmit() {
   const isValidForm = inputs.every(el => {
     const isValidInput = validate(el);
     if(!isValidInput) {
@@ -26,5 +27,13 @@ function onSubmit() {
     }
     return isValidInput;
   })
-  console.log(isValidForm);
+  if(!isValidForm) return;
+
+  try {
+    await login(inputEmail.value, inputEmail.value);
+    // show success notify
+  } catch (err) {
+    // show error notify
+  }
+  form.reset();
 }
