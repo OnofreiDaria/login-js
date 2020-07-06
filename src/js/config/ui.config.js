@@ -4,4 +4,4 @@ const UI = {
   inputPassword: document.getElementById('password'),
 }
 
-export default
+export default UI;
